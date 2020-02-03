@@ -23,7 +23,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.list:hover {
+  background-color: rgb(194, 194, 194);
+}
 .App-link {
   color: #61dafb;
 }
