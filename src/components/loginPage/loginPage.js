@@ -1,14 +1,23 @@
 import React,{useState,useEffect} from 'react'
-import {Row,Col,Layout,Menu,Form, Icon, Input, Button, Checkbox,Avatar,Typography,Card,Timeline,Carousel} from 'antd'
-import Header from './utilComponents/header'
+//import {Row,Col,Layout,Typography,Card,Timeline,Carousel} from 'antd'
+
+import Row from 'antd/es/row'
+import Col from 'antd/es/col'
+import Layout from 'antd/es/layout'
+import Typography from 'antd/es/typography'
+
+
+
+
+import Header from '../utilComponents/header'
 import Login from './login'
 
 const LoginPage=(props)=>
 { const {  Content, Footer } = Layout;
     const {Title,Paragraph}=Typography
-    return(<Layout className="parallax" style={{backgroundImage:"bg.jpg"}}>
+    return(<Layout className="parallax" style={{backgroundImage:"../media/bg.jpg",height:"calc(100vw)"}} >
    <Header defaultSelectedKeys={['1']}/>
-    <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"720px"}}>
+    <Content style={{ padding: '0 0 0 0px', marginTop: 64,height:"720px"}}>
      <Row className="alignCenter"> 
          <Col span={8}></Col>
           <Col span={8}  style={{margin:"15px",marginTop:"120px",background: "rgba(80, 80, 80, 0.5)",paddingLeft:"40px",paddingRight:"40px",paddingBottom:"50px",paddingTop:"50px"}} >

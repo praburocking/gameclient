@@ -1,6 +1,9 @@
 import React from 'react'
-import {Row,Col,Layout,Typography,Collapse} from 'antd'
-import Header from './utilComponents/header'
+// import {Layout,Typography,Collapse} from 'antd'
+import Collapse from 'antd/es/collapse';
+import Layout from 'antd/es/layout'
+import Typography from  'antd/es/typography'
+import Header from '../utilComponents/header'
 import './faq.css'
 
 const Faq=(props)=>
@@ -15,10 +18,10 @@ const text = (
   );
 
     return(
-    <Layout className="parallax" style={{backgroundImage:"bg.jpg"}}>
+    <Layout className="parallax" style={{backgroundImage:"../media/bg.jpg"}}>
    <Header defaultSelectedKeys={['2']}/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"1020px",marginLeft:"80px",marginRight:"80px",marginTop:"120px" }}>
-     <Title className="alignCenter">FAQ</Title>
+     <Title className="alignCenter" style={{color:"white"}}>FAQ</Title>
     <Collapse bordered={false} defaultActiveKey={['1']}>
     <Panel header="This is panel header 1" key="1">
       {text}

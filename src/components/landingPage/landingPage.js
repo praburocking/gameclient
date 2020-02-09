@@ -1,10 +1,19 @@
-import React,{useEffect,useState} from  'react'
-import {Row,Col,Layout,Menu,Form, Icon, Input, Button, Checkbox,Avatar,Typography,Card,Timeline,Carousel} from 'antd'
-import {Link,withRouter} from 'react-router-dom'
-import './landingPage.css'
-import Signup from './signup'
+import React from  'react'
+//import {Row,Col,Layout,Menu,Form, Icon, Input, Button, Checkbox,Avatar,Typography,Card,Timeline,Carousel} from 'antd'
+import Row from 'antd/es/row'
+import Col from 'antd/es/col'
+import Layout from 'antd/es/layout'
+import Avatar from 'antd/es/avatar'
+import Typography from 'antd/es/typography'
+import Card from 'antd/es/card'
+import Timeline from 'antd/es/timeline'
+import Carousel from 'antd/es/carousel'
 
-import Header from './utilComponents/header'
+import withRouter from 'react-router-dom/withRouter'
+import './landingPage.css'
+import Signup from '../signup/signup'
+
+import Header from '../utilComponents/header'
 
 const LandingPage=(props)=>
 {
@@ -12,7 +21,7 @@ const LandingPage=(props)=>
     const {Title,Paragraph}=Typography
    // const {Layout,Header}=Layout
     return(
-    <Layout className="parallax" style={{backgroundImage:"bg.jpg"}}>
+    <Layout className="parallax" style={{backgroundImage:"../media/bg.jpg"}}>
        <Header/>
         <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"1020px" }}>
             <Row style={{minHeight:"720px"}}>
