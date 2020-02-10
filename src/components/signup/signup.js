@@ -15,6 +15,7 @@ import {setAuthorizationCookies} from '../../util/common_utils'
 
 
 const Signup=(props)=>{
+  const [isLoading, setLoading]=useState(false)
   const { getFieldDecorator,getFieldsError,getFieldError,isFieldTouched } = props.form;
   useEffect(()=>{props.form.validateFields()},[]);
   const emailError = isFieldTouched('email') && getFieldError('email');
@@ -30,6 +31,8 @@ const Signup=(props)=>{
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    setLoading(true);
     console.log("form",event.target.email)
     props.form.validateFields( async (err, values) => {
       if (!err) {
@@ -41,12 +44,20 @@ const Signup=(props)=>{
         {
           setAuthorizationCookies(signupResp.data);
           message.success("welcome "+signupResp.data.username+ " !")
+          setLoading(false);
           props.history.push("/home")
         }
         else
         {
+          setLoading(false);
         props.history.push("/login")
+        
         }
+       }
+       else
+       {
+         message.error("Exception while signing us please try again later");
+         setLoading(false);
        }
        console.log("signup res",signupResp);
 
@@ -98,8 +109,9 @@ const Signup=(props)=>{
   <Form.Item>
     
     <br/>
-    <Button type="primary" htmlType="submit" size="large" className="login-form-button"   disabled={hasErrors(getFieldsError())}>
-      Start Your Free Trial
+    <Button type="primary" htmlType="submit" size="large" className="login-form-button"   disabled={hasErrors(getFieldsError())} loading={isLoading}>
+      {!isLoading && "Start Your Free Trial"}
+      {isLoading && "Signing You In"}
     </Button>
     
   </Form.Item>

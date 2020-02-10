@@ -21,6 +21,7 @@ const setUserDetailsToStore=(user)=>
 }
 
 const Login=(props)=>{
+  const [isLoading,setLoading]=useState(false);
   const { getFieldDecorator,getFieldsError,getFieldError,isFieldTouched } = props.form;
   useEffect(()=>{props.form.validateFields()},[]);
   const emailError = isFieldTouched('email') && getFieldError('email');
@@ -28,6 +29,8 @@ const Login=(props)=>{
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log("type",setLoading);
+    setLoading(true);
     props.form.validateFields( async (err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
@@ -38,12 +41,15 @@ const Login=(props)=>{
         props.setUserDetailsToStore(loginRes.data)
         console.log("data =>",props.user);
         message.success("welcome "+loginRes.data.username+" ! ");
+        setLoading(false);
         props.history.push('/')
         }
         else
         {
+          
         console.log("login Response",loginRes);
         message.error("Exception while Signing-in ");
+        setLoading(false);
         }
       }
     });
@@ -83,8 +89,9 @@ const Login=(props)=>{
       Forgot password
     </a>
     <br/>
-    <Button type="primary" htmlType="submit" size="large" className="login-form-button">
-      Login
+    <Button type="primary" htmlType="submit" size="large" className="login-form-button" loading={isLoading}>
+    { !isLoading && "Login" }
+    { isLoading && "Loging You In" }
     </Button>
     
   </Form.Item>
