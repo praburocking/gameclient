@@ -9,25 +9,46 @@ import Button from 'antd/es/button'
 import message from 'antd/es/message'
 //import Checkbox from 'antd/es/checkbox'
 import Select from 'antd/es/select'
-import {signup} from '../../services/connectToServer'
+import {signup,isUserExist} from '../../services/connectToServer'
 import {withRouter} from 'react-router-dom'
 import {setAuthorizationCookies} from '../../util/common_utils'
 
 
 const Signup=(props)=>{
-  const [isLoading, setLoading]=useState(false)
   const { getFieldDecorator,getFieldsError,getFieldError,isFieldTouched } = props.form;
+  const [isLoading, setLoading]=useState(false)
+  const [emailError,setEmailError]=useState(isFieldTouched('email') && getFieldError('email'));
+  
   useEffect(()=>{props.form.validateFields()},[]);
-  const emailError = isFieldTouched('email') && getFieldError('email');
-  const passwordError = isFieldTouched('password') && getFieldError('password');
-  const planError=isFieldTouched('plan') && getFieldError('plan');
+  //let emailError = isFieldTouched('email') && getFieldError('email');
+  let passwordError = isFieldTouched('password') && getFieldError('password');
+  let planError=isFieldTouched('plan') && getFieldError('plan');
   const {Option}=Select;
 
   function hasErrors(fieldsError) {
     console.log("fieldError",fieldsError);
     return Object.keys(fieldsError).some(field => fieldsError[field]);
   }
-
+const isExist=async (event)=>
+{
+  console.log("isExist ",event.target.value)
+  if(event.target.value)
+  {
+    const existResp= await isUserExist(event.target.value);
+    console.log("exist ",existResp);
+    if(existResp.status===200)
+    {
+      if(existResp.data.status)
+      {
+       setEmailError("email-ID already exist");
+      }
+      else
+      {
+        setEmailError(false);
+      }
+    }
+  }
+}
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -37,6 +58,7 @@ const Signup=(props)=>{
     props.form.validateFields( async (err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+       
        const signupResp=await signup(values);
        if(signupResp.status===200)
        {
@@ -76,6 +98,7 @@ const Signup=(props)=>{
         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
         size="large"
         placeholder="Email"
+        onBlur={isExist}
       />,
     )}
   </Form.Item>

@@ -50,3 +50,8 @@ export const add_payment=()=>
 {
 return axios.post(payment_url,null,setAuthorizationHeader()).then(response=>response).catch((error)=>error.response);
 }
+
+export const isUserExist=(email)=>
+{
+    return axios.get(signup_url+"/exist?email="+email,null).then(response=>response).catch((error)=>error.response);
+}
