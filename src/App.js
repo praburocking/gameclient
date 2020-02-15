@@ -19,6 +19,9 @@ import LogOut from './components/logout/logout'
 import { Provider } from 'react-redux'
 import store from './store/store'
 import User from './components/user/user'
+import NotFound from './components/404/404'
+import ForgotPasswordPage from './components/forgotpassword/forgotpasswordpage'
+import ResetPasswordPage from './components/resetPassword/resetPasswordPage'
 
 
 function App(props) {
@@ -40,7 +43,11 @@ function App(props) {
       <Route exact path ="/logout" render={()=>verifyAndGetToken()?<LogOut/>:<Redirect to="/"/>}></Route>
       <Route exact path ="/home" render={()=>verifyAndGetToken()?<HomePage/>:<Redirect to="/"/>} ></Route>
       <Route exact path ="/user" render={()=>verifyAndGetToken()?<User/>:<Redirect to="/"/>} ></Route>
+      <Route exact path="/forgotpassword" render={()=>verifyAndGetToken()?<Redirect to="/home"/>:<ForgotPasswordPage/>}></Route>
+      <Route exact path="/resetPassword" render={()=>verifyAndGetToken()?<Redirect to="/home"/>:<ResetPasswordPage/>}></Route>
       <Route exact path ="/signup" ><Signup/></Route>
+      <Route exact path ="/pagenotfound" render={()=><NotFound/>} ></Route>
+      <Route  render={()=><Redirect to="/pagenotfound"/>} ></Route>
       </Switch>
     </Provider>
    

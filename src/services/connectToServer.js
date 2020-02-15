@@ -14,6 +14,8 @@ let user_url=url+"users";
 let logout_url=url+"logout";
 let signup_url=url+"signup"
 let payment_url=url+"pay"
+let forgotPassword_url=url+"forgotpassword"
+let resetPass_url=url+"resetpass"
 
 export const signup=(userData)=>
 {
@@ -54,4 +56,18 @@ return axios.post(payment_url,null,setAuthorizationHeader()).then(response=>resp
 export const isUserExist=(email)=>
 {
     return axios.get(signup_url+"/exist?email="+email,null).then(response=>response).catch((error)=>error.response);
+}
+
+export const forgotPassword=(email)=>
+{
+    return axios.post(forgotPassword_url,email).then(response=>response).catch((error)=>error.response);
+}
+
+export const forgotPasswordVerify=(key)=>
+{
+    return axios.post(forgotPassword_url+"/verifykey?token="+key).then(response=>response).catch((error)=>error.response);
+}
+export const resetPass=(key)=>
+{
+    return axios.post(resetPass_url,key).then(response=>response).catch((error)=>error.response);
 }
