@@ -28,19 +28,25 @@ const ResetPassword=(props)=>{
   const passwordError = isFieldTouched('password') && getFieldError('password');
   const {Title,Paragraph}=Typogrpahy
 
-  console.log("location ",props.location);
-  console.log("match ",props.match);
+
+
   useEffect( ()=>
   {const verify=async()=>{
     let token=props.location.search
     if(token.includes('token=') && !token.includes('&') && token.split('=')[1])
     {
     let verifyRes=await forgotPasswordVerify(token.split('=')[1])
+    if(verifyRes.status!==200 || !verifyRes.data.status )
+    {
+      message.error("invalid token redirecting to home page");
+      props.history.push('/')
+    }
+
     }
     else
     {
       message.error("invalid token redirecting to home page");
-     // props.locations.push('/')
+      props.history.push('/')
     }
   }
   verify();
@@ -86,8 +92,8 @@ const ResetPassword=(props)=>{
     <Title level={3} style={{color:"white"}}>Reset Password</Title>
     <br/>
     <Form onSubmit={handleSubmit} className="login-form">
-{console.log("from return",props.user.username)}
- <Form.Item validateStatus={emailError ? 'error' : ''} help={emailError || ''}>
+
+ {/* <Form.Item validateStatus={emailError ? 'error' : ''} help={emailError || ''}>
     {getFieldDecorator('email', { })(
       <Input
         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -96,7 +102,7 @@ const ResetPassword=(props)=>{
         
       />,
     )}
-  </Form.Item>
+  </Form.Item> */}
   <Form.Item validateStatus={passwordError ? 'error' : ''} help={passwordError || ''}>
     {getFieldDecorator('password', {
       rules: [{ required: true, message: 'Please input your Password!' }],

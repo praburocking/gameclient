@@ -9,18 +9,34 @@ import Typography from 'antd/es/typography'
 
 
 
-import Header from './utilComponents/header'
+import Header from '../utilComponents/header'
+import FileUploader from '../utilComponents/fileUploader'
+import DataTable from '../utilComponents/dataTable'
 
 
 const HomePage=(props)=>
-{ const {  Content, Footer } = Layout;
+{ 
+    const {  Content, Footer } = Layout;
     const {Title,Paragraph}=Typography
-    return(<Layout className="parallax" style={{backgroundImage:"../media/bg.jpg"}}>
+
+    return(
+    <Layout className="parallax layout-bg" >
    <Header defaultSelectedKeys={['1']} isLoggedIn="true"/>
-    <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"720px"}}>
-    
+    <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"720px",padding:20}}>
+
+        <Row style={{margin:20,marginLeft:100,marginRight:100}}>
+            <Col>
+             <FileUploader/>
+             </Col>
+        </Row>
+        <Row style={{backgroundColor:"rgb(56, 56, 56)",marginLeft:50,marginRight:50}}>
+            <Col>
+                <DataTable/>
+            </Col>
+
+    </Row>
     </Content>
-    <Footer >
+    <Footer>
     <div style={{textAlign:"left"}}>  For any enquiries, contact prabumohan96@gmail.com</div>
        <div style={{textAlign:"right"}}> © 2020, All Rights Reserved.</div></Footer>
 </Layout>)

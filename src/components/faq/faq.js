@@ -18,7 +18,7 @@ const text = (
   );
 
     return(
-    <Layout className="parallax" style={{backgroundImage:"../media/bg.jpg"}}>
+    <Layout className="parallax layout-bg" >
    <Header defaultSelectedKeys={['2']}/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"1020px",marginLeft:"80px",marginRight:"80px",marginTop:"120px" }}>
      <Title className="alignCenter" style={{color:"white"}}>FAQ</Title>

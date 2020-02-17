@@ -6,6 +6,8 @@ import Input from 'antd/es/input'
 import Button from 'antd/es/button'
 import message from 'antd/es/message'
 import Typogrpahy from 'antd/es/typography'
+import Row from 'antd/es/row'
+import Column from 'antd/es/col'
 
 import {connect} from 'react-redux'
 import {state_to_props} from '../../util/common_utils'
@@ -101,10 +103,20 @@ const Login=(props)=>{
     
   </Form.Item>
 </Form>
-<Link className="login-form-forgot" to="/forgotpassword">
-      Forgot password
+<Row >
+  <Column span={12} style={{color:"white"}}>
+  <Link to="/" style={{color:"white"}}>
+  <Icon type="left" style={{color:"#1890ff"}}/>
+  
+      Signup
     </Link>
-
+   </Column>
+  <Column span={12}>
+<Link  to="/forgotpassword" style={{color:"white"}}>
+      Forgot password <Icon type="right" style={{color:"#1890ff"}}/>
+    </Link>
+    </Column>
+    </Row>
 </div>)
 }
 

@@ -15,7 +15,9 @@ import Login from './login'
 const LoginPage=(props)=>
 { const {  Content, Footer } = Layout;
     const {Title,Paragraph}=Typography
-    return(<Layout className="parallax" style={{backgroundImage:"../media/bg.jpg",height:"calc(100vw)"}} >
+
+    return(
+    <Layout className="parallax layout-bg"  >
    <Header defaultSelectedKeys={['1']}/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64,height:"720px"}}>
      <Row className="alignCenter"> 

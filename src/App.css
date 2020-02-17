@@ -13,6 +13,12 @@
   }
 }
 
+.layout-bg{
+ 
+  background-color: black;
+  height:calc(100vw)
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
