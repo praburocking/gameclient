@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 //import {Row,Col,Layout,Typography,Card,Timeline,Carousel} from 'antd'
 
 import Row from 'antd/es/row'
@@ -14,7 +14,6 @@ import ForgotPassword from './forgotpassword'
 
 const ForgotPasswordPage=(props)=>
 { const {  Content, Footer } = Layout;
-    const {Title,Paragraph}=Typography
     return(<Layout className="parallax" style={{backgroundImage:"../media/bg.jpg",height:"calc(100vw)"}} >
    <Header defaultSelectedKeys={['1']}/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64,height:"720px"}}>

@@ -10,7 +10,7 @@ let url=process.env.NODE_ENV==="development"?process.env.REACT_APP_DEVELOPMENT_S
 
 let hero_url=url+"hero";
 let login_url=url+"login";
-let user_url=url+"users";
+//et user_url=url+"users";
 let logout_url=url+"logout";
 let signup_url=url+"signup"
 let payment_url=url+"pay"

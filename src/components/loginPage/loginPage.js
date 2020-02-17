@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 //import {Row,Col,Layout,Typography,Card,Timeline,Carousel} from 'antd'
 
 import Row from 'antd/es/row'
@@ -14,7 +14,7 @@ import Login from './login'
 
 const LoginPage=(props)=>
 { const {  Content, Footer } = Layout;
-    const {Title,Paragraph}=Typography
+    
 
     return(
     <Layout className="parallax layout-bg"  >

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 //import {Row,Col,Layout,Typography,Card,Timeline,Carousel} from 'antd'
 
 
@@ -13,7 +13,7 @@ import Header from '../utilComponents/header'
 
 const User=(props)=>
 { const {  Content, Footer } = Layout;
-    const {Title,Paragraph}=Typography
+    
     return(<Layout className="parallax" style={{backgroundImage:"../media/bg.jpg"}}>
    <Header defaultSelectedKeys={['1']} isLoggedIn="true"/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"720px"}}>

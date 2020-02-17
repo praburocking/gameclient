@@ -11,7 +11,7 @@ import {connect} from 'react-redux'
 import {state_to_props} from '../../util/common_utils'
 
 import {withRouter,Link} from 'react-router-dom'
-import {setAuthorizationCookies} from '../../util/common_utils'
+//import {setAuthorizationCookies} from '../../util/common_utils'
 
 import {forgotPasswordVerify,resetPass} from '../../services/connectToServer'
 
@@ -22,16 +22,16 @@ const setUserDetailsToStore=(user)=>
 
 const ResetPassword=(props)=>{
   const [isLoading,setLoading]=useState(false);
-  const { getFieldDecorator,getFieldsError,getFieldError,isFieldTouched } = props.form;
-  useEffect(()=>{props.form.validateFields()},[]);
-  const emailError = isFieldTouched('email') && getFieldError('email');
+  const { getFieldDecorator,getFieldError,isFieldTouched } = props.form;
+  //const emailError = isFieldTouched('email') && getFieldError('email');
   const passwordError = isFieldTouched('password') && getFieldError('password');
-  const {Title,Paragraph}=Typogrpahy
+  const {Title}=Typogrpahy
 
 
 
   useEffect( ()=>
-  {const verify=async()=>{
+  {
+    const verify=async()=>{
     let token=props.location.search
     if(token.includes('token=') && !token.includes('&') && token.split('=')[1])
     {
@@ -49,6 +49,7 @@ const ResetPassword=(props)=>{
       props.history.push('/')
     }
   }
+  props.form.validateFields()
   verify();
   },[]);
 
