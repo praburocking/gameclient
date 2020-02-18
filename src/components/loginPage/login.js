@@ -49,9 +49,16 @@ const Login=(props)=>{
         }
         else
         {
-          
-        console.log("login Response",loginRes);
-        message.error("Exception while Signing-in ");
+          if(loginRes.data && loginRes.data.message)
+          {
+            message.error(loginRes.data.message);
+          }
+          else
+          {
+            message.error("Exception while Signing-in ");
+          }
+       
+       
         setLoading(false);
         }
       }

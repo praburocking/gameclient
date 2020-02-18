@@ -4,6 +4,7 @@ import React from 'react'
 import Row from 'antd/es/row'
 import Col from 'antd/es/col'
 import Layout from 'antd/es/layout'
+import Progress from 'antd/es/progress'
 
 
 
@@ -24,8 +25,11 @@ const HomePage=(props)=>
     <Content style={{  marginTop: 64, minHeight:"720px",padding:20}}>
 
         <Row style={{margin:20,marginLeft:100,marginRight:100}}>
-            <Col>
+            <Col span={16}>
              <FileUploader/>
+             </Col>
+             <Col span={6} className="App" style={{color:"white",padding:"20px",margin:20}}>
+             <Progress type="circle" percent={75} status="active" style={{color:"white"}}/>
              </Col>
         </Row>
         <Row style={{backgroundColor:"rgb(56, 56, 56)",marginLeft:50,marginRight:50}}>

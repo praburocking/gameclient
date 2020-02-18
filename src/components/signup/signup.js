@@ -78,7 +78,15 @@ const isExist=async (event)=>
        }
        else
        {
-         message.error("Exception while signing us please try again later");
+         if(signupResp.data && signupResp.data.message)
+         {
+          message.error(signupResp.data.message);
+         }
+         else
+         {
+          message.error("Exception while signing us please try again later");
+         }
+         
          setLoading(false);
        }
        console.log("signup res",signupResp);

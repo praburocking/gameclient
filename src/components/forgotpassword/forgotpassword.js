@@ -34,24 +34,31 @@ const ForgotPassword=(props)=>{
     setLoading(true);
     props.form.validateFields( async (err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         const forgotPassRes=await forgotPassword(values);
         if(forgotPassRes && forgotPassRes.status===200)
         {
-        console.log("data =>",props.user);
         message.success("password reset link has been sent to your registered mail-id");
         setLoading(false);
         props.history.push('/')
         }
         else
         {
-        console.log("forgot Response",forgotPassRes);
-        message.error("Exception while Signing-in ");
+        if(forgotPassRes.data.message)
+        {
+          message.error(forgotPassRes.data.message);
+        }
+        else
+        {
+          message.error("Exception while Signing-in ");
+        }
+       
         setLoading(false);
         }
       }
     });
   };
+
+  
   return (<div>
   <Title level={3} style={{color:"white"}}>Forgot Password</Title>
   <br/>

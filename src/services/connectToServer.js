@@ -16,58 +16,135 @@ let signup_url=url+"signup"
 let payment_url=url+"pay"
 let forgotPassword_url=url+"forgotpassword"
 let resetPass_url=url+"resetpass"
+let verifyuser_url=url+"verifyuser"
 
-export const signup=(userData)=>
+export const signup=async (userData)=>
 {
-return axios.post(signup_url,userData).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(signup_url, userData);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const signout=()=>
+export const signout=async ()=>
 {
-return axios.post(logout_url,{signout:true},setAuthorizationHeader()).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(logout_url, { signout: true }, setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
 
-export const login=(loginData)=>
+export const login=async (loginData)=>
 {   console.log("loginData ",loginData);
-    return axios.post(login_url,loginData).then(response=>response).catch(error=>error.response);
+    try {
+        const response = await axios.post(login_url, loginData);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const get_hero=()=>
+export const get_hero=async ()=>
 {
-return axios.get(hero_url,setAuthorizationHeader()).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.get(hero_url, setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const search_hero=(search)=>
+export const search_hero=async (search)=>
 {
-return axios.get(hero_url+"/search?search_term="+search,setAuthorizationHeader()).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.get(hero_url + "/search?search_term=" + search, setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const add_hero=(hero)=>
+export const add_hero=async (hero)=>
 {
-return axios.post(hero_url,hero,setAuthorizationHeader()).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(hero_url, hero, setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const add_payment=()=>
+export const add_payment=async ()=>
 {
-return axios.post(payment_url,null,setAuthorizationHeader()).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(payment_url, null, setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const isUserExist=(email)=>
+export const isUserExist=async (email)=>
 {
-    return axios.get(signup_url+"/exist?email="+email,null).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.get(signup_url + "/exist?email=" + email, null);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const forgotPassword=(email)=>
+export const forgotPassword=async (email)=>
 {
-    return axios.post(forgotPassword_url,email).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(forgotPassword_url, email);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
 
-export const forgotPasswordVerify=(key)=>
+export const forgotPasswordVerify=async (key)=>
 {
-    return axios.post(forgotPassword_url+"/verifykey?token="+key).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(forgotPassword_url + "/verifykey?token=" + key);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
-export const resetPass=(key)=>
+export const resetPass=async (key)=>
 {
-    return axios.post(resetPass_url,key).then(response=>response).catch((error)=>error.response);
+    try {
+        const response = await axios.post(resetPass_url, key);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
+}
+export const verifyUser=async (key)=>
+{
+    try {
+        const response = await axios.post(verifyuser_url, key);
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
 }
