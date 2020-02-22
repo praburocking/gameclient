@@ -18,6 +18,7 @@ let forgotPassword_url=url+"forgotpassword"
 let resetPass_url=url+"resetpass"
 let verifyuser_url=url+"verifyuser"
 let uploadfile_url=url+"file/upload"
+let getfiles_url=url+"file/list"
 
 export const signup=async (userData)=>
 {
@@ -154,6 +155,17 @@ export const uploadfile=async (data)=>
 {
     try {
         const response = await axios.post(uploadfile_url, data,setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+    }
+}
+
+export const getFiles=async ()=>
+{
+    try {
+        const response = await axios.get(getfiles_url,setAuthorizationHeader());
         return response;
     }
     catch (error) {

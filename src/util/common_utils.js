@@ -80,7 +80,7 @@ export function setCookie(cname, cvalue, exdays) {
 
   export const state_to_props=(store)=>
   {
-      return ({user:store.user,serverConfig:store.serverConfig})
+      return ({user:store.user,serverConfig:store.serverConfig,files:store.files})
   }
 
 

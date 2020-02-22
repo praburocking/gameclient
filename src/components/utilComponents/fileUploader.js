@@ -1,9 +1,17 @@
  import Modal from 'antd/es/modal'
  import Input from 'antd/es/input'
+ import message from 'antd/es/message'
 import './fileUploader.css'
 import {uploadfile} from '../../services/connectToServer'
 import React,{useState} from 'react'
+import {connect} from 'react-redux'
 
+
+const updateFilesToStore=(files)=>
+{
+  files.key=files.id;
+ return ({type:"FILES_ADD",data:files})
+}
 
 const FileUploader=(props)=>
 {
@@ -40,7 +48,24 @@ const FileUploader=(props)=>
         const data = new FormData() 
         data.append('file', file);
         data.append('key',eKey);
-        await uploadfile(data)
+        let uploadResp=await uploadfile(data)
+        if(uploadResp.status===200)
+        {
+          props.updateFilesToStore(uploadResp.data)
+        }
+        else
+        {
+          if(uploadResp.data.message)
+          {
+            message.error(uploadResp.data.message)
+          }
+          else
+          {
+            message.error("exception while uploading,please try again later")
+          }
+         
+        }
+        
         setModal(false);
         setFile(null);
         setEKey(null);
@@ -82,6 +107,6 @@ const FileUploader=(props)=>
     )
 }
 
-export default FileUploader;
+export default connect(null,{updateFilesToStore})(FileUploader);
 
 
