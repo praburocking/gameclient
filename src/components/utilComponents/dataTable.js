@@ -10,7 +10,7 @@ const columns = [
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: text => <a style={{color:"black"}}>{text}</a>,
   },
  
   {
@@ -18,9 +18,9 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <span>
-        <a>Download {record.name}</a>
-        <Divider type="vertical" />
-        <a>Delete</a>
+        <a style={{color:"black"}}>Download {record.name}</a>
+        <Divider type="vertical" style={{color:"black"}} />
+        <a style={{color:"black"}}>Delete</a>
       </span>
     ),
   },

@@ -41,14 +41,14 @@ const Header=(props)=>
     )
 
     return(
-    <Header style={{ position: 'fixed', zIndex: 1, width: '100%',background: "rgba(80, 80, 80, 0.7)" }} >
+    <Header style={{ position: 'fixed', zIndex: 1, width: '100%',background: "rgba(2, 164, 255, 0.7)" }} >
     <Link to="/"> <div className="logo" /></Link>
         <Row type="flex" justify="end" align="top"><Col>
 
     {!token && menu}
     {token  &&   
     <>
-    <Avatar shape="square" size="large"  style={{margin:10, backgroundColor: "orange", verticalAlign: 'middle' }}> {props.user.username[0].toUpperCase()}</Avatar>
+    <Avatar shape="square" size="large"  style={{margin:10, backgroundColor: "rgb(57, 224, 89)", verticalAlign: 'middle' }}> {props.user.username[0].toUpperCase()}</Avatar>
      <Dropdown.Button  size ="large" overlay={menu} onClick={()=>props.history.push('/user')}>
       Account
     </Dropdown.Button>

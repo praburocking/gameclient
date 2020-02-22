@@ -22,8 +22,8 @@ const text = (
    <Header defaultSelectedKeys={['2']}/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"1020px",marginLeft:"80px",marginRight:"80px",marginTop:"120px" }}>
      <Title className="alignCenter" style={{color:"white"}}>FAQ</Title>
-    <Collapse bordered={false} defaultActiveKey={['1']}>
-    <Panel header="This is panel header 1" key="1">
+    <Collapse bordered={false} defaultActiveKey={['1']} style={{backgroundColor:"rgb(5, 163, 255)",color:"white"}}>
+    <Panel header="This is panel header 1" key="1" style={{color:"white"}}>
       {text}
     </Panel>
     <Panel header="This is panel header 2" key="2">

@@ -22,7 +22,7 @@ const LandingPage=(props)=>
     const {Title,Paragraph}=Typography
    // const {Layout,Header}=Layout
     return(
-    <Layout className="parallax" style={{backgroundImage:"../media/bg.jpg"}}>
+    <Layout className="parallax" >
        <Header/>
         <Content style={{ padding: '0 0 0 0px', marginTop: 64, minHeight:"1020px" }}>
             <Row style={{minHeight:"720px"}}>
@@ -42,43 +42,43 @@ const LandingPage=(props)=>
                  </div>
                  </Carousel>
                 </Col>
-                <Col span={7} style={{margin:"15px",marginTop:"120px",background: "rgba(80, 80, 80, 0.5)",paddingLeft:"40px",paddingRight:"40px",paddingBottom:"50px",paddingTop:"50px"}} >
+                <Col span={7} style={{margin:"15px",marginTop:"120px",background: "rgba(3, 9, 49, 1)",paddingLeft:"40px",paddingRight:"40px",paddingBottom:"50px",paddingTop:"50px"}} >
             <Signup/>
             
             </Col>
             </Row>
-            <Row style={{minHeight:400,margin:"0px",minWidth:"100%",backgroundColor:"white",padding:0,margin:0}}>
+            <Row style={{minHeight:400,margin:"0px",minWidth:"100%",backgroundColor:"rgba(2, 164, 255, 0.7)",padding:0,margin:0}}>
                 <Col>
-                <Row type="flex" justify="center" style={{paddingBottom:"8px"}}>
+                <Row type="flex" justify="center" style={{paddingBottom:"8px",paddingTop:"5px"}}>
                     <Col>
-                        <Title level={3} >Why Us?</Title>
+                        <Title level={2} style={{color:"white"}}>Why Us?</Title>
                     </Col>
                 </Row>
                 <Row type="flex" justify="space-between"style={{marginLeft:"15px",marginRight:"15px"}}>
                 <Col span={6}  className="alignCenter" >
-                    <Avatar shape="square" size={64} icon="user" />
-                    <Title level={4} >Title</Title>
-                    <Paragraph>we are paragraph write someThing about me</Paragraph>
+                    <Avatar shape="square" size={64} icon="user" style={{marginBottom:10}}/>
+                    <Title level={4} style={{color:"white"}}>Title</Title>
+                    <Paragraph style={{color:"white"}}>we are paragraph write someThing about me</Paragraph>
                     </Col>
                 <Col  span={6} className="alignCenter" >
-                    <Avatar shape="square" size={64} icon="user" />
-                    <Title level={4} >Title</Title>
-                    <Paragraph>we are paragraph write someThing about me</Paragraph>
+                    <Avatar shape="square" size={64} icon="user" style={{marginBottom:10}}/>
+                    <Title level={4} style={{color:"white"}}>Title</Title>
+                    <Paragraph style={{color:"white"}}>we are paragraph write someThing about me</Paragraph>
                     </Col>   
                 <Col  span={6}  className="alignCenter">
-                    <Avatar shape="square" size={64} icon="user" />
-                    <Title level={4} >Title</Title>
-                    <Paragraph>we are paragraph write someThing about me</Paragraph>
+                    <Avatar shape="square" size={64} icon="user" style={{marginBottom:10}}/>
+                    <Title level={4} style={{color:"white"}}>Title</Title>
+                    <Paragraph style={{color:"white"}}>we are paragraph write someThing about me</Paragraph>
                     </Col>
                 <Col  span={6} className="alignCenter" >
-                    <Avatar shape="square" size={64} icon="user" />
-                    <Title level={4} >Title</Title>
-                    <Paragraph>we are paragraph write someThing about me</Paragraph>
+                    <Avatar shape="square" size={64} icon="user" style={{marginBottom:10}}/>
+                    <Title level={4} style={{color:"white"}} >Title</Title>
+                    <Paragraph style={{color:"white"}}>we are paragraph write someThing about me</Paragraph>
                     </Col>
                 <Col  span={6}  className="alignCenter">
-                    <Avatar shape="square" size={64} icon="user" />
-                    <Title level={4} >Title</Title>
-                    <Paragraph>we are paragraph write someThing about me</Paragraph>
+                    <Avatar shape="square" size={64} icon="user" style={{marginBottom:10}}/>
+                    <Title level={4} style={{color:"white"}}>Title</Title>
+                    <Paragraph style={{color:"white"}}>we are paragraph write someThing about me</Paragraph>
                     </Col>
                 </Row>
                 </Col>
@@ -88,30 +88,40 @@ const LandingPage=(props)=>
 
                <Title className="alignCenter" style={{color:"white"}}>Pricing</Title>
                <Row style={{marginBottom:"50px",marginLeft:"40px",marginTop:"50px"}}>
-                   <Col span={6}>
-                   <Card title={<Title level={4} className="alignCenter" style={{color:"white"}}>Price 1</Title>} className="header"  style={{ width: 350,minHeight:400,color:"white" }} >
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
+                   <Col span={6} >
+                   <Card title={<Title level={4} className="alignCenter" style={{color:"rgb(2, 2, 40)"}}>PRICE 1</Title>}   style={{ width: 350,minHeight:400,color:"white",backgroundColor:"rgba(2, 164, 255, 0.7)",border:"0px" }} headStyle={{backgroundColor:"rgb(57, 224, 89)"}}>
+                   <Timeline style={{color:"white"}}>
+                    <Timeline.Item>value1</Timeline.Item>
+                    <Timeline.Item>value2</Timeline.Item>
+                    <Timeline.Item>value3</Timeline.Item>
+                    <Timeline.Item>value4</Timeline.Item>
+                </Timeline>
                 </Card>
                  </Col>
                  <Col span={6}>
-                 <Card title={<Title level={4} className="alignCenter" style={{color:"white"}}>Price 2</Title>} className="header"  style={{ width: 350, minHeight:400,color:"white" }} >
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
+                 <Card title={<Title level={4} className="alignCenter" style={{color:"rgb(2, 2, 40)"}}>PRICE 2</Title>}   style={{ width: 350, minHeight:400,color:"white",backgroundColor:"rgba(2, 164, 255, 0.7)",border:"0px" }} headStyle={{backgroundColor:"rgb(57, 224, 89)"}}>
+                 <Timeline style={{color:"white"}}>
+                    <Timeline.Item>value1</Timeline.Item>
+                    <Timeline.Item>value2</Timeline.Item>
+                    <Timeline.Item>value3</Timeline.Item>
+                    <Timeline.Item>value4</Timeline.Item>
+                </Timeline>
                 </Card>
                 </Col>
                 <Col span={6}>
-                <Card title={<Title level={4} className="alignCenter" style={{color:"white"}}>Price 3</Title>} className="header"  style={{ width: 350,minHeight:400,color:"white"  }} >
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
+                <Card title={<Title level={4} className="alignCenter" style={{color:"rgb(2, 2, 40)"}}>PRICE 3</Title>}   style={{ width: 350,minHeight:400,color:"white" ,backgroundColor:"rgba(2, 164, 255, 0.7)",border:"0px"}} headStyle={{backgroundColor:"rgb(57, 224, 89)"}}>
+                <Timeline style={{color:"white"}}>
+                    <Timeline.Item>value1</Timeline.Item>
+                    <Timeline.Item>value2</Timeline.Item>
+                    <Timeline.Item>value3</Timeline.Item>
+                    <Timeline.Item>value4</Timeline.Item>
+                </Timeline>
                 </Card>
                 </Col>
-                <Col span={6}>
-            
-            <Card title={<Title level={4} className="alignCenter" style={{color:"white"}}>Price 4</Title>} className="header"  style={{ width: 350, minHeight:400 ,color:"white"}} bordered="false" >
+
+
+            <Col span={6}>
+                <Card title={<Title level={4} className="alignCenter" style={{color:"rgb(2, 2, 40)"}}>PRICE 4</Title>}   style={{ width: 350, minHeight:400 ,color:"white",backgroundColor:"rgba(2, 164, 255, 0.7)",border:"0px"}}  headStyle={{backgroundColor:"rgb(57, 224, 89)"}}>
                 <Timeline style={{color:"white"}}>
                     <Timeline.Item>value1</Timeline.Item>
                     <Timeline.Item>value2</Timeline.Item>

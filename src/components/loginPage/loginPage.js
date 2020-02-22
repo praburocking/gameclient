@@ -17,12 +17,12 @@ const LoginPage=(props)=>
     
 
     return(
-    <Layout className="parallax layout-bg"  >
+    <Layout className="layout-bg"  >
    <Header defaultSelectedKeys={['1']}/>
     <Content style={{ padding: '0 0 0 0px', marginTop: 64,height:"720px"}}>
      <Row className="alignCenter"> 
          <Col span={8}></Col>
-          <Col span={8}  style={{margin:"15px",marginTop:"120px",background: "rgba(80, 80, 80, 0.5)",paddingLeft:"40px",paddingRight:"40px",paddingBottom:"50px",paddingTop:"50px"}} >
+          <Col span={8}  style={{margin:"15px",marginTop:"120px",background: "rgba(3, 9, 49, 1)",paddingLeft:"40px",paddingRight:"40px",paddingBottom:"50px",paddingTop:"50px"}} >
      <Login/>
      </Col>
      <Col span={8}></Col>

@@ -85,11 +85,9 @@ const FileUploader=(props)=>
 
     }
     return(
-            <div className="col-md-6">
-                {console.log("selected files ",file)}
+            <div className="col-md-6" style={{backgroundColor:"rgb(57, 224, 89)"}}>
 	      <form method="post" action="#" id="#" >
               <div className="form-group files color">
-                <label>Upload Your File </label>
                 <input type="file" className="form-control" multiple="" onChange={onChangeHandler}/>
               </div>
           </form>

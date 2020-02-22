@@ -57,7 +57,7 @@ const HomePage=(props)=>
              <Progress type="dashboard" percent={75} status="active" style={{color:"white"}}/>
              </Col>
         </Row>
-        <Row style={{backgroundColor:"rgb(56, 56, 56)",marginLeft:50,marginRight:50}}>
+        <Row style={{backgroundColor:"rgb(5, 163, 255)",marginLeft:50,marginRight:50}}>
             <Col>
                 <DataTable data={props.files}/>
             </Col>
