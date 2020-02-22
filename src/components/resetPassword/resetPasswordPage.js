@@ -1,14 +1,10 @@
 import React from 'react'
 //import {Row,Col,Layout,Typography,Card,Timeline,Carousel} from 'antd'
 
-import Row from 'antd/es/row'
+//import Row from 'antd/es/row'
+import {Row} from 'antd'
 import Col from 'antd/es/col'
 import Layout from 'antd/es/layout'
-import Typography from 'antd/es/typography'
-
-
-
-
 import Header from '../utilComponents/header'
 import ResetPassword from './resetPassword'
 

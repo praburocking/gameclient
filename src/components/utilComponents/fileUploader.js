@@ -1,41 +1,87 @@
-import { Upload, Icon, message } from 'antd';
-
-import React from 'react'
+ import Modal from 'antd/es/modal'
+ import Input from 'antd/es/input'
+import './fileUploader.css'
+import {uploadfile} from '../../services/connectToServer'
+import React,{useState} from 'react'
 
 
 const FileUploader=(props)=>
 {
-    const { Dragger } = Upload;
+    
     const prop = {
         name: 'file',
         multiple: true,
-        action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+
         onChange(info) {
-          const { status } = info.file;
-          if (status !== 'uploading') {
-            console.log(info.file, info.fileList);
-          }
-          if (status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully.`);
-          } else if (status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-          }
+          console.log('FILE',info.file);
         },
+        beforeUpload:false
       };
 
+
+    const [file,setFile]=useState(null);
+    const [isShowModal,setModal]=useState(false);
+    const [eKey,setEKey]=useState(null);
+
+
+   const onChangeHandler=event=>{
+
+        console.log(event.target.files[0])
+        
+        if(event.target.files[0])
+        {
+            setFile(event.target.files[0]);
+            setModal(true);
+        }
+    }
+
+   const handleOk = async(e) => {
+        console.log(e);
+        const data = new FormData() 
+        data.append('file', file);
+        data.append('key',eKey);
+        await uploadfile(data)
+        setModal(false);
+        setFile(null);
+        setEKey(null);
+      };
+    
+    const  handleCancel = e => {
+        console.log(e);
+        setModal(false);
+        setFile(null);
+        setEKey(null);
+      };
+
+    const changeEKey=(event)=>
+    {
+        console.log("value",event.target.value);
+        setEKey(event.target.value);
+
+    }
     return(
-
-<Dragger {...prop}>
-    <p className="ant-upload-drag-icon">
-      <Icon type="inbox" />
-    </p>
-    <p className="ant-upload-text">Upload or Drag and Drop to upload a new file to your Vault</p>
-    <p className="ant-upload-hint">
-     your new file will be stored in our secured server
-    </p>
-  </Dragger>
-
+            <div className="col-md-6">
+                {console.log("selected files ",file)}
+	      <form method="post" action="#" id="#" >
+              <div className="form-group files color">
+                <label>Upload Your File </label>
+                <input type="file" className="form-control" multiple="" onChange={onChangeHandler}/>
+              </div>
+          </form>
+	      
+          <Modal
+          title="please Enter your entryption key"
+          visible={isShowModal}
+          onOk={handleOk}
+          onCancel={handleCancel}>
+          <Input type="text" placeholder="Encryption Key" value={eKey} onChange={changeEKey}/>
+          <p>we will use this key along with our own random private key to encrypt your data</p>
+        </Modal>
+	      
+	  </div>
     )
 }
 
 export default FileUploader;
+
+

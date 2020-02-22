@@ -1,4 +1,8 @@
-import { Table, Divider, Tag } from 'antd';
+
+ import Table from 'antd/es/table'
+ import Divider from 'antd/es/divider'
+ import Tag from 'antd/es/tag'
+
 import React from 'react';
 
 const columns = [

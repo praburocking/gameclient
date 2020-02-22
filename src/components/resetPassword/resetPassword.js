@@ -35,13 +35,12 @@ const ResetPassword=(props)=>{
     let token=props.location.search
     if(token.includes('token=') && !token.includes('&') && token.split('=')[1])
     {
-    let verifyRes=await forgotPasswordVerify(token.split('=')[1])
-    if(verifyRes.status!==200 || !verifyRes.data.status )
-    {
-      message.error("invalid token redirecting to home page");
-      props.history.push('/')
-    }
-
+      let verifyRes=await forgotPasswordVerify(token.split('=')[1])
+      if(verifyRes.status!==200 || !verifyRes.data.status )
+        {
+          message.error("invalid token redirecting to home page");
+          props.history.push('/')
+         }
     }
     else
     {

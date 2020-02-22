@@ -1,3 +1,5 @@
+
+@import '~antd/dist/antd.css';
 .App {
   text-align: center;
 }
@@ -90,4 +92,14 @@
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 500ms, transform 500ms;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }

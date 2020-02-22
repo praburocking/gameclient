@@ -4,11 +4,6 @@ import React from 'react'
 import Row from 'antd/es/row'
 import Col from 'antd/es/col'
 import Layout from 'antd/es/layout'
-import Typography from 'antd/es/typography'
-
-
-
-
 import Header from '../utilComponents/header'
 import ForgotPassword from './forgotpassword'
 

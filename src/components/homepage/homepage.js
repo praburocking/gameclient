@@ -29,7 +29,7 @@ const HomePage=(props)=>
              <FileUploader/>
              </Col>
              <Col span={6} className="App" style={{color:"white",padding:"20px",margin:20}}>
-             <Progress type="circle" percent={75} status="active" style={{color:"white"}}/>
+             <Progress type="dashboard" percent={75} status="active" style={{color:"white"}}/>
              </Col>
         </Row>
         <Row style={{backgroundColor:"rgb(56, 56, 56)",marginLeft:50,marginRight:50}}>

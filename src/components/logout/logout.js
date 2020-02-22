@@ -28,7 +28,7 @@ let exception=false;
 
 return(<div>
 
-    {!exception && <Typography.Title className="center"> signing you out !!!</Typography.Title> }
+    {!exception && <Typography.Title className="center blink_me"> signing you out !!!</Typography.Title> }
     {exception && <><Typography.Title> ohh!!, we encountered a exception while signing you out</Typography.Title>  <Typography.Paragraph>If the Exception persist please contact the support</Typography.Paragraph></>}
 </div>)
 }

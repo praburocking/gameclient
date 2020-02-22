@@ -1,13 +1,11 @@
-import React,{useState} from 'react';
+import React from 'react';
 //import logo from './logo.svg';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   withRouter,
   Redirect
 } from "react-router-dom";
-import 'antd/dist/antd.css';
 import './App.css';
 import Signup from './components/signup/signup'
 import LandingPage from './components/landingPage/landingPage'

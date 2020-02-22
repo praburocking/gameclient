@@ -4,7 +4,6 @@ import Form from 'antd/es/form'
 import Icon from 'antd/es/icon'
 import Input from 'antd/es/input'
 import Button from 'antd/es/button'
-import Checkbox from 'antd/es/checkbox'
 import message from 'antd/es/message'
 import Typography from 'antd/es/typography'
 
@@ -12,7 +11,6 @@ import {connect} from 'react-redux'
 import {state_to_props} from '../../util/common_utils'
 
 import {withRouter,Link} from 'react-router-dom'
-import {setAuthorizationCookies} from '../../util/common_utils'
 
 import {forgotPassword} from '../../services/connectToServer'
 
@@ -58,7 +56,7 @@ const ForgotPassword=(props)=>{
     });
   };
 
-  
+
   return (<div>
   <Title level={3} style={{color:"white"}}>Forgot Password</Title>
   <br/>
