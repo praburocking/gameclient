@@ -7,6 +7,7 @@ import Icon from 'antd/es/icon'
 import Input from 'antd/es/input'
 import Button from 'antd/es/button'
 import message from 'antd/es/message'
+import Typography from 'antd/es/typography'
 //import Checkbox from 'antd/es/checkbox'
 import Select from 'antd/es/select'
 import {signup,isUserExist} from '../../services/connectToServer'
@@ -18,6 +19,7 @@ const Signup=(props)=>{
   const { getFieldDecorator,getFieldsError,getFieldError,isFieldTouched } = props.form;
   const [isLoading, setLoading]=useState(false)
   const [emailError,setEmailError]=useState(isFieldTouched('email') && getFieldError('email'));
+  const {Title} = Typography;
   
   useEffect(()=>{props.form.validateFields()},[]);
   //let emailError = isFieldTouched('email') && getFieldError('email');
@@ -97,7 +99,10 @@ const isExist=async (event)=>
 
   
 
-  return (<div><Form onSubmit={handleSubmit} className="login-form">
+  return (<div>
+    <Title style={{color:"white"}} level={3} >Sign-up</Title>
+    <br/>
+    <Form onSubmit={handleSubmit} className="login-form">
   <Form.Item validateStatus={emailError ? 'error' : ''} help={emailError || ''} >
     {getFieldDecorator('email', {
       rules: [{ required: true, message: 'Please input mailID' },{ type:'email', message: 'Please enter the proper E-Mail ID' }],
@@ -129,6 +134,7 @@ const isExist=async (event)=>
     })(
       <Select
           size="large" 
+          placeholder="select your plan"
         >
           <Option value="planA">plan A, 8 User, 3USD/month</Option>
           <Option value="planB">plan B, 12 User, 5USD/month</Option>
