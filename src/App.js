@@ -16,7 +16,7 @@ import {verifyAndGetToken,find_user_cookie_put_to_store} from './util/common_uti
 import LogOut from './components/logout/logout'
 import { Provider } from 'react-redux'
 import store from './store/store'
-import User from './components/user/user'
+import Accounts from './components/accounts/accounts'
 import NotFound from './components/404/404'
 import ForgotPasswordPage from './components/forgotpassword/forgotpasswordpage'
 import ResetPasswordPage from './components/resetPassword/resetPasswordPage'
@@ -41,7 +41,7 @@ function App(props) {
       <Route exact path ="/login" render={()=>verifyAndGetToken()?<Redirect to="/home"/>:<Login/>}></Route>
       <Route exact path ="/logout" render={()=>verifyAndGetToken()?<LogOut/>:<Redirect to="/"/>}></Route>
       <Route exact path ="/home" render={()=>verifyAndGetToken()?<HomePage/>:<Redirect to="/"/>} ></Route>
-      <Route exact path ="/user" render={()=>verifyAndGetToken()?<User/>:<Redirect to="/"/>} ></Route>
+      <Route exact path ="/accounts" render={()=>verifyAndGetToken()?<Accounts/>:<Redirect to="/"/>} ></Route>
       <Route exact path="/forgotpassword" render={()=>verifyAndGetToken()?<Redirect to="/home"/>:<ForgotPasswordPage/>}></Route>
       <Route exact path="/resetPassword" render={()=>verifyAndGetToken()?<Redirect to="/home"/>:<ResetPasswordPage/>}></Route>
       <Route exact path="/verifyuser" render={()=>verifyAndGetToken()?<Redirect to="/home"/>:<VerifyUser/>}></Route>

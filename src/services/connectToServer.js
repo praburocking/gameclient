@@ -19,6 +19,7 @@ let resetPass_url=url+"resetpass"
 let verifyuser_url=url+"verifyuser"
 let uploadfile_url=url+"file/upload"
 let getfiles_url=url+"file/list"
+let downloadfiles_url=url+'file/download'
 
 export const signup=async (userData)=>
 {
@@ -170,5 +171,19 @@ export const getFiles=async ()=>
     }
     catch (error) {
         return error.response;
+        
+    }
+}
+
+
+export const downloadFiles=async (id)=>
+{
+    try {
+        const response = await axios.get(downloadfiles_url+"/"+id,setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
+        
     }
 }
