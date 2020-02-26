@@ -1,11 +1,14 @@
  import Modal from 'antd/es/modal'
  import Input from 'antd/es/input'
  import message from 'antd/es/message'
+ import Upload from 'antd/es/upload'
+ import Icon from 'antd/es/icon'
 import './fileUploader.css'
 import {uploadfile} from '../../services/connectToServer'
 import React,{useState} from 'react'
 import {connect} from 'react-redux'
 
+const { Dragger } = Upload;
 
 const updateFilesToStore=(files)=>
 {
@@ -18,12 +21,21 @@ const FileUploader=(props)=>
     
     const prop = {
         name: 'file',
-        multiple: true,
-
+        multiple: false,
+        action:'#',
         onChange(info) {
           console.log('FILE',info.file);
+          if(info.file)
+        {
+            setFile(info.file);
+            setModal(true);
+        }
         },
-        beforeUpload:false
+        beforeUpload:()=>false,
+        onSubmit(e){
+          console.log("iam in submit")
+          e.preventDefault();
+        }
       };
 
 
@@ -62,10 +74,8 @@ const FileUploader=(props)=>
           else
           {
             message.error("exception while uploading,please try again later")
-          }
-         
+          } 
         }
-        
         setModal(false);
         setFile(null);
         setEKey(null);
@@ -86,11 +96,16 @@ const FileUploader=(props)=>
     }
     return(
             <div className="col-md-6" style={{backgroundColor:"rgb(57, 224, 89)"}}>
-	      <form method="post" action="#" id="#" >
-              <div className="form-group files color">
-                <input type="file" className="form-control" multiple="" onChange={onChangeHandler}/>
-              </div>
-          </form>
+            <Dragger {...prop} >
+                <p className="ant-upload-drag-icon">
+               <Icon type="inbox" />
+               </p>
+               <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                <p className="ant-upload-hint">
+                  Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+                  band files
+                </p>
+            </Dragger>
 	      
           <Modal
           title="please Enter your entryption key"
