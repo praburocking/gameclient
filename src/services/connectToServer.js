@@ -20,6 +20,7 @@ let verifyuser_url=url+"verifyuser"
 let uploadfile_url=url+"file/upload"
 let getfiles_url=url+"file/list"
 let downloadfiles_url=url+'file/download'
+let deletefile_url=url+'file'
 
 export const signup=async (userData)=>
 {
@@ -185,5 +186,16 @@ export const downloadFiles=async (id)=>
     catch (error) {
         return error.response;
         
+    }
+}
+
+export const deleteFile=async (id)=>
+{
+    try {
+        const response = await axios.delete(deletefile_url+"/"+id,setAuthorizationHeader());
+        return response;
+    }
+    catch (error) {
+        return error.response;
     }
 }

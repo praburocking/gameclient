@@ -10,6 +10,11 @@ const fileReducer=(state=[],action)=>
         {
             return state.concat(action.data);
         }
+        else if(action.type==="FILES_DEL")
+        {       
+            var newstate=state.filter(ele=>{if(ele.id!==action.data){return true}else{return false}})
+            return newstate
+        }
         else{
             return state
         }

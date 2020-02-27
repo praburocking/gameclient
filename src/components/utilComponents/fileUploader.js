@@ -44,16 +44,16 @@ const FileUploader=(props)=>
     const [eKey,setEKey]=useState(null);
 
 
-   const onChangeHandler=event=>{
+  //  const onChangeHandler=event=>{
 
-        console.log(event.target.files[0])
+  //       console.log(event.target.files[0])
         
-        if(event.target.files[0])
-        {
-            setFile(event.target.files[0]);
-            setModal(true);
-        }
-    }
+  //       if(event.target.files[0])
+  //       {
+  //           setFile(event.target.files[0]);
+  //           setModal(true);
+  //       }
+  //   }
 
    const handleOk = async(e) => {
         console.log(e);
