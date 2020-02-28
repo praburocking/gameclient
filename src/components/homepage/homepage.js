@@ -34,7 +34,7 @@ const HomePage=(props)=>
             if(filesResp.status===200)
             {
             let files=filesResp.data;
-            files.map(file=>{file.key=file.id;file.id=null})
+            files.map(file=>{file.key=file.id})
             console.log("files ",filesResp.data);
             props.addFilesToStore(filesResp.data);
             }

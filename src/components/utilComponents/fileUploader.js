@@ -23,6 +23,7 @@ const FileUploader=(props)=>
         name: 'file',
         multiple: false,
         action:'#',
+        showUploadList:false,
         onChange(info) {
           console.log('FILE',info.file);
           if(info.file)

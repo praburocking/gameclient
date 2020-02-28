@@ -89,8 +89,8 @@ else
 }
 }
       return(
-      <Table columns={columns} dataSource={props.files} />
+      <Table columns={columns} dataSource={props.data} />
       )
   }
 
-export default connect(state_to_props,{deleteFromStore})(DataTable);
+export default connect(null,{deleteFromStore})(DataTable);
