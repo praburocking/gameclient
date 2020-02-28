@@ -7,28 +7,35 @@
 import {connect} from 'react-redux'
 import React from 'react';
 import {state_to_props} from '../../util/common_utils'
-var fileDownload = require('js-file-download');
+var fs =require('fs')
 
 
 const download=async (record)=>
 {
-var key=record.key;
-var downloadResp=await downloadFiles(key);
-if(downloadResp.status===200)
-{ console.log("download resp",downloadResp.headers);
-  fileDownload(downloadResp.data, record.name);
-}
-else
-{
-  if(downloadResp.data && downloadResp.data.message)
-  {
-    message.error(downloadResp.data.message)
-  }
+  var key=record.key;
+  var downloadResp=await downloadFiles(key);
+  if(downloadResp.status===200)
+    { 
+        var data=downloadResp.data;
+        const downloadUrl = window.URL.createObjectURL(new Blob([data]));
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', record.name); //any other extension
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
   else
-  {
-    message.error("Exception while downloading the file")
-  }
-}
+    {
+      if(downloadResp.data && downloadResp.data.message)
+        {
+          message.error(downloadResp.data.message)
+        }
+      else
+      {
+        message.error("Exception while downloading the file")
+      }
+    }
 }
 
 
@@ -36,18 +43,9 @@ const deleteFromStore=(key)=>
 {
   return {type:"FILES_DEL",data:key}
 }
-
-
-
-
-
-
-
-
   const DataTable=(props)=>
   {
-
-    console.log("files props",props);
+    
     const columns = [
       {
         title: 'Name',
@@ -70,24 +68,25 @@ const deleteFromStore=(key)=>
     ];
 
     const handeDelete=async(key)=>
-{
-let deleteResp=await deleteFile(key)
-if(deleteResp.status===200)
-{
-props.deleteFromStore(key)
-}
-else
-{
-  if(deleteResp.data && deleteResp.data.message)
-  {
-    message.error(deleteResp.data.message)
-  }
-  else
-  {
-    message.error("Exception while deleting the file, Please try again later")
-  }
-}
-}
+      {
+          let deleteResp=await deleteFile(key)
+          if(deleteResp.status===200)
+            {
+              props.deleteFromStore(key)
+            }
+          else
+            {
+              if(deleteResp.data && deleteResp.data.message)
+                {
+                  message.error(deleteResp.data.message)
+                }
+              else
+                {
+                  message.error("Exception while deleting the file, Please try again later")
+                }
+              }
+        }
+
       return(
       <Table columns={columns} dataSource={props.data} />
       )

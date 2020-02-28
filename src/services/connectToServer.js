@@ -177,23 +177,39 @@ export const getFiles=async ()=>
 }
 
 
-export const downloadFiles=async (id)=>
-{
-    try {
-        const response = await axios.get(downloadfiles_url+"/"+id,setAuthorizationHeader());
-        return response;
-    }
-    catch (error) {
-        return error.response;
+// export const downloadFiles=async (id)=>
+// {
+//     try {
+//         const response = await axios.get(downloadfiles_url+"/"+id,setAuthorizationHeader());
+//         return response;
+//     }
+//     catch (error) {
+//         return error.response;
         
-    }
-}
+//     }
+// }
 
 export const deleteFile=async (id)=>
 {
     try {
         const response = await axios.delete(deletefile_url+"/"+id,setAuthorizationHeader());
         return response;
+    }
+    catch (error) {
+        return error.response;
+    }
+}
+
+export const downloadFiles=async (id)=>{
+
+    try{
+    const response=await axios.request({
+        url:downloadfiles_url+"/"+id,
+        method:"GET",
+        headers:setAuthorizationHeader().headers,
+        responseType: 'blob'
+        })
+    return response
     }
     catch (error) {
         return error.response;
