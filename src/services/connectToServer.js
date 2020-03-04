@@ -200,13 +200,16 @@ export const deleteFile=async (id)=>
     }
 }
 
-export const downloadFiles=async (id)=>{
+export const downloadFiles=async (id,key)=>{
 
     try{
     const response=await axios.request({
         url:downloadfiles_url+"/"+id,
-        method:"GET",
+        method:"POST",
         headers:setAuthorizationHeader().headers,
+        data: {
+            key:key
+          },
         responseType: 'blob'
         })
     return response
